@@ -1,6 +1,7 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+import { provideFunctions, getFunctions, connectFunctionsEmulator} from '@angular/fire/functions';
 import { provideAuth, getAuth, connectAuthEmulator } from '@angular/fire/auth';
 import { provideFirestore, getFirestore, connectFirestoreEmulator } from '@angular/fire/firestore';
 import { provideMessaging, getMessaging } from '@angular/fire/messaging';
@@ -15,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore()), 
     provideMessaging(() => getMessaging()), 
-    provideStorage(() => getStorage())
-
+    provideStorage(() => getStorage()),
+    provideFunctions(() => getFunctions())
   ],
 };
